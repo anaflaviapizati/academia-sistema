@@ -1,4 +1,4 @@
-# 🏋️ Sistema de Academia — MongoDB (driver nativo, sem ORM/ODM)
+# Sistema de Academia — MongoDB
 
 Sistema de gestão de academia (CRUD completo) construído com **Node.js**, **Express** e **MongoDB**, usando **apenas o driver nativo do MongoDB** (pacote `mongodb`) para falar com o banco — **sem Mongoose, sem ORM/ODM e sem nenhuma outra biblioteca de terceiros para acesso aos dados**, conforme exigido no enunciado do projeto prático (CSI603 — Banco de Dados II).
 
@@ -60,7 +60,7 @@ Na versão anterior, `models/` continha *Schemas do Mongoose* (um ODM). Isso foi
 
 ---
 
-## 🚀 Como rodar
+## Como rodar
 
 1. **Extraia o arquivo .zip** e entre na pasta do projeto:
    ```bash
@@ -130,7 +130,7 @@ curl -X POST http://localhost:3000/api/planos \
 
 ---
 
-## 🗂️ Modelagem do banco de dados
+## Modelagem do banco de dados
 
 Veja o arquivo **`MODELAGEM.md`** para o detalhamento completo das coleções, relacionamentos e o diagrama (em Mermaid).
 
