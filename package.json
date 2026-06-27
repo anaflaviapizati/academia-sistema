@@ -1,0 +1,29 @@
+{
+  "name": "academia-sistema",
+  "version": "1.0.0",
+  "description": "Sistema de gestao de academia",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev:server": "nodemon server.js",
+    "dev:client": "vite",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "vite build",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^7.4.0",
+    "recharts": "^3.9.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^6.0.7"
+  }
+}
