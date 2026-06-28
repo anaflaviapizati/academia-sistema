@@ -1,56 +1,12 @@
-# Sistema de Academia — MongoDB
+# Sistema de Academia usando MongoDB (nosql)
 
-Sistema de gestão de academia (CRUD completo) construído com **Node.js**, **Express** e **MongoDB**, usando **apenas o driver nativo do MongoDB** (pacote `mongodb`) para falar com o banco — **sem Mongoose, sem ORM/ODM e sem nenhuma outra biblioteca de terceiros para acesso aos dados**, conforme exigido no enunciado do projeto prático (CSI603 — Banco de Dados II).
+Sistema de gestão de academia construído com Node.js, Express e MongoDB para falar com o banco.
 
-Inclui uma **interface gráfica web simples** (HTML/CSS/JS puro, sem frameworks de frontend) para inserir e consultar os dados — não é necessário usar `mongosh`, Compass ou qualquer outro aplicativo de administração do SGBD.
+Inclui uma interface gráfica web simples usando React e vite para o front
 
-Gerencia: alunos, instrutores, planos, matrículas, pagamentos, treinos e check-ins (frequência).
+O deploy foi feito usando o render para o backend e o vercel para subir o frontend.
 
-
-## 📁 Estrutura do projeto
-
-```
-academia-sistema/
-├── config/
-│   └── db.js               # Conexão com o MongoDB usando o driver nativo (MongoClient)
-├── validators/              # Funções puras de validação dos dados (NÃO é ODM/Schema)
-│   ├── aluno.js
-│   ├── instrutor.js
-│   ├── plano.js
-│   ├── matricula.js
-│   ├── pagamento.js
-│   ├── treino.js
-│   └── checkin.js
-├── utils/
-│   └── objectId.js          # Helper para validar/converter ObjectId
-├── routes/                  # Rotas Express — falam com o MongoDB via db.collection(...)
-│   ├── alunos.js
-│   ├── instrutores.js
-│   ├── planos.js
-│   ├── matriculas.js
-│   ├── pagamentos.js
-│   ├── treinos.js
-│   └── checkins.js
-├── public/                  # Interface gráfica (front-end) servida pelo Express
-│   ├── index.html
-│   ├── style.css
-│   └── app.js                # fetch() para a própria API REST — nenhum acesso direto ao BD
-├── server.js                 # Ponto de entrada da aplicação (API + interface web)
-├── seed.js                   # Script para popular o banco com dados de exemplo
-├── package.json
-├── .env / .env.example
-└── MODELAGEM.md              # Documentação da modelagem do banco (NoSQL)
-```
-
-### Por que não há mais uma pasta `models/`?
-
-Na versão anterior, `models/` continha *Schemas do Mongoose* (um ODM). Isso foi removido. Agora:
-
-
-
-## ⚙️ Pré-requisitos
-
-
+Gerencia: alunos, instrutores, planos, matrículas, pagamentos, treinos e check-ins.
 
 ## Como rodar
 
@@ -63,25 +19,12 @@ Na versão anterior, `models/` continha *Schemas do Mongoose* (um ODM). Isso foi
    ```bash
    npm install
    ```
-   (instala apenas `express`, `mongodb`, `dotenv`, `cors` e, para desenvolvimento, `nodemon` — nenhum ORM/ODM)
+   (instala apenas `express`, `mongodb`, `dotenv`, `cors` e, para desenvolvimento, `nodemon`)
 
 3. **Configure as variáveis de ambiente:**
-   O arquivo `.env` já vem preenchido com a string de conexão do seu cluster Atlas:
-   ```
-   PORT=3000
-   MONGO_URI=mongodb+srv://usuario:senha@cluster.mongodb.net/academia_db?appName=...
-   ```
-   Se quiser usar outro banco (ex.: local), edite essa linha. Veja `.env.example` para outros formatos.
+   O arquivo `.env` já vem preenchido com a string de conexão do seu cluster Atlas (mas se for rodar local é só por o link, tem o exemplo no .env example):
 
-   ⚠️ **Atenção:** o arquivo `.env` está no `.gitignore` (não é enviado ao Git), mas como a senha foi compartilhada em texto puro durante o desenvolvimento, é uma boa prática trocá-la no Atlas (Database Access → Edit Password) antes de entregar/publicar o projeto.
-
-4. **(Opcional) Popule o banco com dados de exemplo:**
-   ```bash
-   npm run seed
-   ```
-   Isso cria 3 planos, 2 instrutores, 2 alunos, matrículas, pagamentos, treinos e um check-in de exemplo. Também garante a criação dos índices únicos (`cpf`, `email`).
-
-5. **Inicie o servidor:**
+4. **Inicie o servidor:**
    ```bash
    npm start
    ```
@@ -94,7 +37,7 @@ Na versão anterior, `models/` continha *Schemas do Mongoose* (um ODM). Isso foi
    ```
    http://localhost:3000
    ```
-   Use o menu lateral para cadastrar e consultar alunos, instrutores, planos, matrículas, pagamentos, treinos e check-ins — tudo pela própria interface, sem precisar de linha de comando ou de aplicativos de administração do MongoDB.
+   E tá pronto o sorvetinho.
 
 
 ## 📡 Endpoints da API (usados pela própria interface)
@@ -111,19 +54,13 @@ Todos os recursos seguem o padrão REST: `GET`, `GET /:id`, `POST`, `PUT /:id`, 
 | Treinos        | `/api/treinos`         | Filtro: `?aluno=`                                                                  |
 | Check-ins      | `/api/checkins`        | `POST /api/checkins/entrada`, `PUT /api/checkins/:id/saida`                       |
 
-### Exemplo (com `curl`, apenas para depuração — a entrega usa a interface web)
-
-```bash
-curl -X POST http://localhost:3000/api/planos \
-  -H "Content-Type: application/json" \
-  -d '{"nome":"Mensal","valor":120,"duracaoMeses":1,"beneficios":["Musculação"]}'
-```
-
 
 ## Modelagem do banco de dados
 
-Veja o arquivo **`MODELAGEM.md`** para o detalhamento completo das coleções, relacionamentos e o diagrama (em Mermaid).
+Veja o arquivo **`MODELAGEM.md`** para o detalhamento completo das coleções, relacionamentos e o diagrama.
 
 
 ## 🔧 Possíveis melhorias futuras
 
+Adicionar autenticação
+Melhorar a velocidade evoluindo o deploy
