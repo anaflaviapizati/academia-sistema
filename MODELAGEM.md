@@ -1,4 +1,4 @@
-# 🗂️ Modelagem do Banco de Dados — Sistema de Academia (MongoDB / NoSQL)
+# Modelagem do Banco de Dados do Sistema de academia (MongoDB / NoSQL)
 
 ## 1. Visão geral
 
@@ -6,8 +6,6 @@ O banco `academia_db` é composto por **7 coleções**. Como o MongoDB é orient
 
 - **Referências (`ObjectId` + `ref`)** entre coleções, quando a entidade tem ciclo de vida e consultas próprias (ex.: Aluno, Plano, Instrutor).
 - **Subdocumentos embutidos**, quando os dados pertencem exclusivamente ao "dono" do documento e não fazem sentido fora dele (ex.: endereço do aluno, lista de exercícios de um treino).
-
-Essa escolha equilibra performance de leitura (evitando `joins`/populates desnecessários) com flexibilidade de consulta (mantendo entidades importantes pesquisáveis isoladamente).
 
 ---
 
@@ -222,5 +220,3 @@ db.pagamentos.createIndex({ aluno: 1, mesReferencia: 1 })
 // checkins
 db.checkins.createIndex({ aluno: 1, dataHoraEntrada: -1 })
 ```
-
-Esses índices são criados automaticamente pela aplicação ao iniciar (função `criarIndices()` em `config/db.js`), usando apenas chamadas nativas do driver `mongodb` (`collection.createIndex(...)`) — não há nenhum ORM/ODM envolvido nessa etapa.
