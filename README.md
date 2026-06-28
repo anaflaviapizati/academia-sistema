@@ -6,7 +6,6 @@ Inclui uma **interface gráfica web simples** (HTML/CSS/JS puro, sem frameworks 
 
 Gerencia: alunos, instrutores, planos, matrículas, pagamentos, treinos e check-ins (frequência).
 
----
 
 ## 📁 Estrutura do projeto
 
@@ -47,18 +46,11 @@ academia-sistema/
 
 Na versão anterior, `models/` continha *Schemas do Mongoose* (um ODM). Isso foi removido. Agora:
 
-- `validators/*.js` são apenas **funções JavaScript comuns** que conferem e normalizam os campos recebidos antes de gravar — não têm relação com nenhum ORM/ODM, não definem "classes de modelo" e não controlam a conexão com o banco.
-- Toda a comunicação real com o MongoDB acontece nas `routes/*.js`, diretamente via `db.collection('nome').find(...)`, `insertOne(...)`, `findOneAndUpdate(...)`, `aggregate(...)`, etc — chamadas nativas do pacote oficial `mongodb`.
-- Relacionamentos entre coleções (o que antes era feito com `.populate()` do Mongoose) agora usam `$lookup` em pipelines de agregação — um recurso **nativo** do MongoDB, não uma biblioteca externa.
 
----
 
 ## ⚙️ Pré-requisitos
 
-- [Node.js](https://nodejs.org/) (v18 ou superior)
-- Uma conexão com o MongoDB: local (`mongodb://localhost:27017/...`) **ou** [MongoDB Atlas](https://www.mongodb.com/atlas) (gratuito)
 
----
 
 ## 🚀 Como rodar
 
@@ -104,7 +96,6 @@ Na versão anterior, `models/` continha *Schemas do Mongoose* (um ODM). Isso foi
    ```
    Use o menu lateral para cadastrar e consultar alunos, instrutores, planos, matrículas, pagamentos, treinos e check-ins — tudo pela própria interface, sem precisar de linha de comando ou de aplicativos de administração do MongoDB.
 
----
 
 ## 📡 Endpoints da API (usados pela própria interface)
 
@@ -128,17 +119,11 @@ curl -X POST http://localhost:3000/api/planos \
   -d '{"nome":"Mensal","valor":120,"duracaoMeses":1,"beneficios":["Musculação"]}'
 ```
 
----
 
 ## 🗂️ Modelagem do banco de dados
 
 Veja o arquivo **`MODELAGEM.md`** para o detalhamento completo das coleções, relacionamentos e o diagrama (em Mermaid).
 
----
 
 ## 🔧 Possíveis melhorias futuras
 
-- Autenticação (JWT) para instrutores/administradores
-- Geração automática de pagamentos mensais (job agendado)
-- Notificações de vencimento de plano
-- Validação de CPF/CNPJ

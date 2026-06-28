@@ -183,38 +183,15 @@ erDiagram
         string status
     }
 
-    PAGAMENTOS {
-        ObjectId _id
-        ObjectId aluno
-        ObjectId matricula
-        number valor
-        string mesReferencia
-        string formaPagamento
         string status
     }
 
-    TREINOS {
-        ObjectId _id
-        ObjectId aluno
-        ObjectId instrutor
-        string nome
-        string objetivo
         array exercicios
     }
 
-    CHECKINS {
-        ObjectId _id
-        ObjectId aluno
         date dataHoraEntrada
         date dataHoraSaida
     }
-```
-
----
-
-## 4. Justificativa das decisões de modelagem (NoSQL)
-
-| Decisão | Por quê |
 |---|---|
 | `endereco` embutido em `alunos` | Não tem ciclo de vida próprio, nunca é consultado fora do aluno → 1 leitura, sem populate |
 | `exercicios` embutido em `treinos` | Exercícios de um treino não fazem sentido isolados, e são sempre lidos junto com o treino inteiro |
