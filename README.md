@@ -10,7 +10,12 @@ Gerencia: alunos, instrutores, planos, matrículas, pagamentos, treinos e check-
 
 ## Link de acesso
 
+Sistema:
 https://academia-sistema-evpvdc1g1-anaflaviapizatis-projects.vercel.app/
+Diagrama:
+https://app.brmodeloweb.com/publicview/6a492ef5581a8d297bf51d90
+Video de apresentação: 
+https://youtu.be/mJuO4moujz4
 
 ## Como rodar local
 
