@@ -8,15 +8,16 @@ O deploy foi feito usando o render para o backend e o vercel para subir o fronte
 
 Gerencia: alunos, instrutores, planos, matrículas, pagamentos, treinos e check-ins.
 
-## Link de acesso
+## Links de acesso
 
-Sistema:
-https://academia-sistema-evpvdc1g1-anaflaviapizatis-projects.vercel.app/
-Diagrama:
-https://app.brmodeloweb.com/publicview/6a492ef5581a8d297bf51d90
-Video de apresentação: 
-https://youtu.be/mJuO4moujz4
+- **Sistema:**  
+  https://academia-sistema-evpvdc1g1-anaflaviapizatis-projects.vercel.app/
 
+- **Diagrama:**  
+  https://app.brmodeloweb.com/publicview/6a492ef5581a8d297bf51d90
+
+- **Vídeo de apresentação:**  
+  https://youtu.be/mJuO4moujz4
 ## Como rodar local
 
 1. **Extraia o arquivo .zip** e entre na pasta do projeto:
