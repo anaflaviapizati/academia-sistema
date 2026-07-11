@@ -8,7 +8,11 @@ O deploy foi feito usando o render para o backend e o vercel para subir o fronte
 
 Gerencia: alunos, instrutores, planos, matrículas, pagamentos, treinos e check-ins.
 
-## Como rodar
+## Link de acesso
+
+https://academia-sistema-evpvdc1g1-anaflaviapizatis-projects.vercel.app/
+
+## Como rodar local
 
 1. **Extraia o arquivo .zip** e entre na pasta do projeto:
    ```bash
@@ -53,12 +57,6 @@ Todos os recursos seguem o padrão REST: `GET`, `GET /:id`, `POST`, `PUT /:id`, 
 | Pagamentos     | `/api/pagamentos`      | Filtros: `?aluno=` `?status=` `?mesReferencia=`                                   |
 | Treinos        | `/api/treinos`         | Filtro: `?aluno=`                                                                  |
 | Check-ins      | `/api/checkins`        | `POST /api/checkins/entrada`, `PUT /api/checkins/:id/saida`                       |
-
-
-## Modelagem do banco de dados
-
-Veja o arquivo **`MODELAGEM.md`** para o detalhamento completo das coleções, relacionamentos e o diagrama.
-
 
 ## 🔧 Possíveis melhorias futuras
 
