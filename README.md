@@ -17,7 +17,7 @@ Gerencia: alunos, instrutores, planos, matrículas, pagamentos, treinos e check-
   https://app.brmodeloweb.com/publicview/6a492ef5581a8d297bf51d90
 
 - **Vídeo de apresentação:**  
-  https://youtu.be/mJuO4moujz4
+  https://youtu.be/-s-P77UuVSI
 ## Como rodar local
 
 1. **Extraia o arquivo .zip** e entre na pasta do projeto:
